@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Supplier Portal</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #3498db, #2ecc71);
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            padding-bottom: 4px;
+            position: relative;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            left: 0;
+            bottom: 0;
+            background: white;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        main {
+        flex: 1;
+            padding: 30px 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #ffffff;
+            color: #777;
+            font-size: 14px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🏭 Supplier Portal</h1>
+    <nav>
+        <a href="{% url 'supplier_register' %}">Supplier Registration</a>
+        <a href="{% url 'home' %}">Home</a>
+       <a href="{% url 'login' %}">Login</a>
+      <a href="{% url 'registration' %}">Register</a>
+       
+    </nav>
+</header>
+<main>
+    {% block content %}{% endblock %}
+</main>
+<footer> 
+    © {{ year|default:"2026" }} Supplier Portal • All rights reserved
+</footer>
+</body>
+</html>
